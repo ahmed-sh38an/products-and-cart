@@ -1,10 +1,9 @@
 <template>
   <main class="wrapper">
-    <h2>Recommended</h2>
-    <div class="recommended">
-
+    <h2>Products</h2>
+    <div class="card-container">
       <ProductCard
-        v-for="(product, index) in inventory.slice(0,3)"
+        v-for="(product, index) in inventory.slice(0,6)"
         :key="product.id"
         class="card"
         :index="index"
@@ -12,17 +11,16 @@
         :addToCart="addToCart"
       />
     </div>
-  </main>
+</main>
 </template>
 
 <script>
 import ProductCard from '@/components/ProductCard.vue'
 
 export default {
+  props: ['inventory', 'addToCart'],
   components: {
     ProductCard
-  },
-  name: 'HomeView',
-  props: ['inventory', 'addToCart']
+  }
 }
 </script>
